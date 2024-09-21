@@ -45,7 +45,7 @@ class UserController extends Controller
             return ResponseHelper::Out('success','Login Successful',200)->cookie('token',$token, time() + 60*60);
         }
         else{
-            return ResponseHelper::Out('fail','Login Successful',200);
+            return ResponseHelper::Out('fail','Check Email and Password',200);
         }
     }
     //User Logout

@@ -19,8 +19,8 @@ return new class extends Migration
             $table->integer('year');
             $table->string('car_type');
             $table->decimal('daily_rent_price',8,2);
-            $table->boolean('availability');
-            $table->string('image',300);
+            $table->boolean('availability')->default(true);
+            $table->string('image_url',300);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

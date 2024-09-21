@@ -10,6 +10,7 @@ class Car extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'name',
         'brand',
         'model',
@@ -17,7 +18,7 @@ class Car extends Model
         'car_type',
         'daily_rent_price',
         'availability',
-        'image'
+        'image_url'
     ];
 
     public function rentals(){

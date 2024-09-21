@@ -23,6 +23,7 @@ class UserController extends Controller
             User::create([
                 'name'=>$request->input('name'),
                 'email'=>$request->input('email'),
+                'phone_number'=>$request->input('phone_number'),
                 'password'=>$request->input('password'),
             ]);
             return ResponseHelper::Out('success','You are added as customer',200);

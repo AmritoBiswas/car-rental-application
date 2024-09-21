@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CarController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\TokenAuthenticate;
@@ -31,3 +32,11 @@ Route::get('/all-car',[CarController::class,'index'])->middleware([IsAdmin::clas
 Route::post('/car-by-id',[CarController::class,'carById'])->middleware([IsAdmin::class]);
 Route::post('/update-car',[CarController::class,'update'])->middleware([IsAdmin::class]);
 Route::post('/delete-car',[CarController::class,'destroy'])->middleware([IsAdmin::class]);
+
+
+//API controller route for customer management
+Route::get('/all-customer',[CustomerController::class,'index'])->middleware([IsAdmin::class]);
+Route::post('/create-customer',[CustomerController::class,'create'])->middleware([IsAdmin::class]);
+Route::post('/delete-customer',[CustomerController::class,'destroy'])->middleware([IsAdmin::class]);
+Route::get('/customer-by-id',[CustomerController::class,'show'])->middleware([IsAdmin::class]);
+Route::post('/customer-update',[CustomerController::class,'update'])->middleware([IsAdmin::class]);

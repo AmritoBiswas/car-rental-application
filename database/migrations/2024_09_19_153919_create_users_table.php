@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name',50);
             $table->string('email',50)->unique();
+            $table->string('phone_number',11)->nullable();
             $table->string('password');
-            $table->enum('role',['admin','user'])->default('user');
+            $table->enum('role',['admin','customer'])->default('customer');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

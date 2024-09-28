@@ -20,7 +20,7 @@ class User extends Model
         return $this->role === 'customer';
     }
 
-    public function rentals(){
+    public function rental(){
         return $this->hasMany(Rental::class);
     }
 }

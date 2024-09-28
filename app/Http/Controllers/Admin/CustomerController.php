@@ -14,6 +14,13 @@ class CustomerController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function customerAdminPage(){
+        return view('backend.pages.dashboard.customer-page');
+     }
+
+     public function customerUpdatePage(){
+        return view('backend/pages/dashboard/profile-update-page');
+     }
     public function index()
     {
         $customerList = User::where('role','=','customer')->get();

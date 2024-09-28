@@ -36,10 +36,12 @@ class IsAdmin
 
         
         if ($role == 'admin') {
+            $request->headers->set('email',$result->userEmail);
+            $request->headers->set('id',$result->userID);
             return $next($request);
         }
         else{
-            return ResponseHelper::Out('failed','You are not admin',200);
+            return redirect('/login');
         }
     }
         

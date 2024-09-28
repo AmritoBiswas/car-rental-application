@@ -15,7 +15,11 @@ class UserController extends Controller
     //Page Controllers
 
     function LoginPage(){
-        return view('login');
+        return view('auth.login');
+    }
+
+    function Register(){
+        return view('auth.register');
     }
     //Create User
     function UserRegistration(Request $request){
@@ -43,7 +47,8 @@ class UserController extends Controller
 
         if($count !== null){
             $token = JWTToken::CreateToken($request->input('email'),$count->id);
-            return ResponseHelper::Out('success','Login Successful',200)->cookie('token',$token, time() + 60*60);
+            $email = $request->header('email');
+            return ResponseHelper::Out($email,'success',200)->cookie('token',$token, time() + 60*60);
         }
         else{
             return ResponseHelper::Out('fail','Check Email and Password',200);

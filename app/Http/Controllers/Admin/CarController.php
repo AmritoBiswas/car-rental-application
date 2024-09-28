@@ -14,6 +14,21 @@ class CarController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+
+
+     //Car List Admin
+
+     public function carListAdmin(){
+        return view('backend.pages.dashboard.product-page');
+     }
+
+     //Car Update
+     public function carUpdateAdmin(){
+        return "hello";
+     } 
+
+    
     public function index()
     {
         $carList = Car::all();
@@ -119,7 +134,7 @@ class CarController extends Controller
                 'daily_rent_price'=>$request->input('daily_rent_price'),
                
             ]);
-            return ResponseHelper::Out('success','Car Updated successfully',200);
+            return ResponseHelper::Out('success','success',200);
         }
     }
 
@@ -134,6 +149,6 @@ class CarController extends Controller
         File::delete($filePath);
         Car::where('id','=',$car_id)->delete();
 
-        return ResponseHelper::Out('success','Car delete successfully',200);
+        return ResponseHelper::Out('success','success',200);
     }
 }
